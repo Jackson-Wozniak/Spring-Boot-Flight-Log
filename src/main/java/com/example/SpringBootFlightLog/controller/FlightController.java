@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "")
+@RequestMapping("/log")
 public class FlightController {
 
     private final FlightService flightService;
@@ -28,13 +28,13 @@ public class FlightController {
         return "allHTML/index";
     }
 
-    @RequestMapping(value = "new", method = RequestMethod.GET)
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newFlightForm(Model model){
         model.addAttribute("title", "Add new Flight");
         return "allHTML/new";
     }
 
-    @RequestMapping(value = "new", method = RequestMethod.POST)
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String createFlightForm(@ModelAttribute Flight flight){
         flightService.addFlight(flight);
         return "redirect:";
