@@ -30,6 +30,7 @@
             <th th:text="${flight.departureAirport}"></th>
             <th th:text="${flight.destinationAirport}"></th>
             <th th:text="${flight.plane}"></th>
+            <td><a th:href="@{/log/{id}(id=${flight.id})}" class="btn btn-primary"></a></td>
         </tr>
     </tbody>
 </table>

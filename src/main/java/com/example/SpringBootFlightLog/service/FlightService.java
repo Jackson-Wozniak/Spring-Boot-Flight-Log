@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FlightService {
@@ -23,5 +24,13 @@ public class FlightService {
 
     public void addFlight(Flight flight){
         flightRepository.save(flight);
+    }
+
+    public void deleteFlight(Flight flight){
+        flightRepository.delete(flight);
+    }
+
+    public Optional<Flight> findStudentById(Long id){
+        return flightRepository.findById(id);
     }
 }

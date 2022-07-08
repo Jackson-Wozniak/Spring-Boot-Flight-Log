@@ -5,9 +5,7 @@ import com.example.SpringBootFlightLog.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/log")
@@ -21,11 +19,19 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String showFlights(Model model){
         model.addAttribute("flights", flightService.getFlights());
         model.addAttribute("title", "Flight List");
         return "allHTML/index";
+    }
+
+    @RequestMapping(value = "{id}")
+    public String deleteFlight(@PathVariable Long id){
+        Flight flight = flightService.findStudentById(id)
+                        .orElseThrow(() -> new IllegalArgumentException("cannot find flight!"));
+        flightService.deleteFlight(flight);
+        return "redirect:";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)

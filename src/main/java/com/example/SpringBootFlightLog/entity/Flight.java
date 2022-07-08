@@ -9,15 +9,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class Flight {
 
     @Id
-    @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = SEQUENCE,
-            generator = "student_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "departure")
@@ -37,6 +29,10 @@ public class Flight {
         this.departureAirport = departureAirport;
         this.destinationAirport = destinationAirport;
         this.plane = plane;
+    }
+
+    public Long getId(){
+        return id;
     }
 
     public String getDepartureAirport() {
