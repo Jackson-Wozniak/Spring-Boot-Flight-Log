@@ -1,9 +1,9 @@
 # Spring-Boot-Flight-Sim-Tracker
 
 A Spring Boot application using a thymeleaf frontend that tracks user flights in flight simulators.
-Currently includes the option to add or view flights, with future features including deleting and editing existing flights.
+Currently includes the option to add, view, and delete flights, with future features including editing existing flights.
 
-The home page is located on localhost:8080/log, and the feature to add flights can be reach by pressing the button or going to localhost:8080/log/new
+The home page is located on localhost:8080/flights
 
 ---
 
