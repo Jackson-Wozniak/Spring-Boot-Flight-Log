@@ -8,7 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/log")
+@RequestMapping("/flights")
+@SuppressWarnings("unused")
 public class FlightController {
 
     private final FlightService flightService;
@@ -19,14 +20,14 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @GetMapping(value = "")
     public String showFlights(Model model){
         model.addAttribute("flights", flightService.getFlights());
         model.addAttribute("title", "Flight List");
         return "allHTML/index";
     }
 
-    @RequestMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     public String deleteFlight(@PathVariable Long id){
         Flight flight = flightService.findStudentById(id)
                         .orElseThrow(() -> new IllegalArgumentException("cannot find flight!"));
@@ -34,13 +35,13 @@ public class FlightController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    @GetMapping(value = "/new")
     public String newFlightForm(Model model){
         model.addAttribute("title", "Add new Flight");
         return "allHTML/new";
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    @PostMapping(value = "/new")
     public String createFlightForm(@ModelAttribute Flight flight){
         flightService.addFlight(flight);
         return "redirect:";

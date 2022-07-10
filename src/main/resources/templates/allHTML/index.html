@@ -13,7 +13,7 @@
 <div class="table-div" style="padding : 10px; text-align : center;">
 
     <h1 style="color : #EEE; padding : 20px;">List Of Flights</h1>
-    <a href="/log/new" ><button style="color : #EEE; background-color : #374151; padding : 20px;">Add New Flight</button></a>
+    <a href="/flights/new" ><button style="color : #EEE; background-color : #374151; padding : 20px;">Add New Flight</button></a>
     <h5>&nbsp</h5>
 
 
@@ -23,6 +23,7 @@
             <th>&nbsp&nbspDeparture Airport</th>
             <th>Destination Airport</th>
             <th>Plane Model Flown</th>
+            <th>Delete/Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +31,7 @@
             <th th:text="${flight.departureAirport}"></th>
             <th th:text="${flight.destinationAirport}"></th>
             <th th:text="${flight.plane}"></th>
-            <td><a th:href="@{/log/{id}(id=${flight.id})}" class="btn btn-primary"></a></td>
+            <td><a th:href="@{/flights/{id}(id=${flight.id})}"><button style="background-color : crimson; border : none; border-radius : 5px">Delete</button></a></td>
         </tr>
     </tbody>
 </table>

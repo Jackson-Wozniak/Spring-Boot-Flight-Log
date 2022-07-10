@@ -2,10 +2,9 @@ package com.example.SpringBootFlightLog.entity;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.SEQUENCE;
-
 @Entity(name = "flight")
 @Table(name = "flight")
+@SuppressWarnings("unused")
 public class Flight {
 
     @Id
