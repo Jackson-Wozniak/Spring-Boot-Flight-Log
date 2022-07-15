@@ -30,7 +30,7 @@ public class FlightService {
         flightRepository.delete(flight);
     }
 
-    public Optional<Flight> findStudentById(Long id){
+    public Optional<Flight> findFlightById(Long id){
         return flightRepository.findById(id);
     }
 }

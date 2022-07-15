@@ -29,7 +29,7 @@ public class FlightController {
 
     @GetMapping(value = "/{id}")
     public String deleteFlight(@PathVariable Long id){
-        Flight flight = flightService.findStudentById(id)
+        Flight flight = flightService.findFlightById(id)
                         .orElseThrow(() -> new IllegalArgumentException("cannot find flight!"));
         flightService.deleteFlight(flight);
         return "redirect:";
