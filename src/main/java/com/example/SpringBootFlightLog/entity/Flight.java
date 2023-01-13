@@ -1,10 +1,18 @@
 package com.example.SpringBootFlightLog.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity(name = "flight")
 @Table(name = "flight")
-@SuppressWarnings("unused")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Flight {
 
     @Id
@@ -19,42 +27,4 @@ public class Flight {
 
     @Column(name = "plane")
     private String plane;
-
-    public Flight(){
-
-    }
-
-    public Flight(String departureAirport, String destinationAirport, String plane) {
-        this.departureAirport = departureAirport;
-        this.destinationAirport = destinationAirport;
-        this.plane = plane;
-    }
-
-    public Long getId(){
-        return id;
-    }
-
-    public String getDepartureAirport() {
-        return departureAirport;
-    }
-
-    public void setDepartureAirport(String departureAirport) {
-        this.departureAirport = departureAirport;
-    }
-
-    public String getDestinationAirport() {
-        return destinationAirport;
-    }
-
-    public void setDestinationAirport(String destinationAirport) {
-        this.destinationAirport = destinationAirport;
-    }
-
-    public String getPlane() {
-        return plane;
-    }
-
-    public void setPlane(String plane) {
-        this.plane = plane;
-    }
 }
